@@ -25,7 +25,7 @@
   const posts = ref(null)
   onMounted(async () => {
     const getToken = JSON.parse(localStorage.getItem('token'))
-    const res = await axios.get(`http://localhost:3001/posts`, {
+    const res = await axios.get(`https://instagramserver-n7xg.onrender.com/posts`, {
       headers: {
         'Authorization': `Bearer: ${getToken}`
       }

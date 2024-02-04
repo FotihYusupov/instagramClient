@@ -43,7 +43,7 @@
   onMounted(async () => {
     token.value = JSON.parse(localStorage.getItem('token'))
     if(token.value) {
-      const res = await axios.get('http://localhost:3001/users/get-me', {
+      const res = await axios.get('https://instagramserver-n7xg.onrender.com/users/get-me', {
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Bearer: ${token.value}` 
@@ -51,7 +51,7 @@
       })
       if(res.status === 200) {
         user.value = res.data
-        const userPosts = await axios.get(`http://localhost:3001/posts/user/${res.data._id}`, {
+        const userPosts = await axios.get(`https://instagramserver-n7xg.onrender.com/posts/user/${res.data._id}`, {
           headers: {
             'Content-Type': 'application/json',
             Authorization: `Bearer: ${token.value}` 

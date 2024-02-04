@@ -47,7 +47,7 @@
     const formData = new FormData()
     formData.append('file', dropzoneFile.files[0])
     formData.append('postDesc', postDesc.value)
-    const res = await axios.post('http://localhost:3001/posts/create', formData, {
+    const res = await axios.post('https://instagramserver-n7xg.onrender.com/posts/create', formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
         Authorization: `Bearer: ${token.value}`

@@ -43,9 +43,9 @@
 
   onMounted(async () => {
     const token = JSON.parse(localStorage.getItem('token'))
-    const res = await axios.get(`http://localhost:3001/users/user/${id}`)
+    const res = await axios.get(`https://instagramserver-n7xg.onrender.com/users/user/${id}`)
     user.value = res.data
-    const getPosts = await axios.get(`http://localhost:3001/posts/user/${id}`, {
+    const getPosts = await axios.get(`https://instagramserver-n7xg.onrender.com/posts/user/${id}`, {
       headers: {
         'Content-Type': 'multipart/form-data',
         Authorization: `Bearer: ${token}`

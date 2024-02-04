@@ -48,7 +48,7 @@
         lastName: SignUpLastName.value,
         password: SignUpPassword.value
       }
-      const res = await axios.post('http://localhost:3001/users/sign-up', data, {
+      const res = await axios.post('https://instagramserver-n7xg.onrender.com/users/sign-up', data, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -73,7 +73,7 @@
       username: LoginUserName.value,
       password: LoginPassword.value
     }
-    const res = await axios.post('http://localhost:3001/users/log-in', data, {
+    const res = await axios.post('https://instagramserver-n7xg.onrender.com/users/log-in', data, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

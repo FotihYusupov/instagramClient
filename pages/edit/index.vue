@@ -42,7 +42,7 @@
     const getToken = JSON.parse(localStorage.getItem('token'))
     if(getToken) {
       token.value = getToken
-      const res = await axios.get('http://localhost:3001/users/get-me', {
+      const res = await axios.get('https://instagramserver-n7xg.onrender.com/users/get-me', {
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Bearer: ${token.value}` 
@@ -63,7 +63,7 @@
     if(editProfileImg.files[0]) {
       formData.append('img', editProfileImg.files[0])
     }
-    const res = await axios.put(`http://localhost:3001/users/edit`, formData, {
+    const res = await axios.put(`https://instagramserver-n7xg.onrender.com/users/edit`, formData, {
       headers: {
         "Content-Type": "multipart/form-data",
         "Authorization": `Bearer: ${token.value}`

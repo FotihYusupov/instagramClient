@@ -31,13 +31,13 @@
   const users = ref(null)
 
   onMounted(async () => {
-    const res = await axios.get('http://localhost:3001/users')
+    const res = await axios.get('https://instagramserver-n7xg.onrender.com/users')
     users.value = res.data;
   })
 
   const searchUsers = async (e) => {
     e.preventDefault();
-    const res = await axios.get(`http://localhost:3001/users/${defaultSearch.value}`)
+    const res = await axios.get(`https://instagramserver-n7xg.onrender.com/users/${defaultSearch.value}`)
     users.value = res.data;
   }
 </script>

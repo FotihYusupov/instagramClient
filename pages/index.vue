@@ -102,9 +102,9 @@
     if(!JSON.parse(localStorage.getItem('token'))) {
       navigateTo('/auth')
     }
-    const res = await axios.get('http://localhost:3001/users')
+    const res = await axios.get('https://instagramserver-n7xg.onrender.com/users')
     users.value = res.data.reverse().slice(0, 8)
-    const user = await axios.get('http://localhost:3001/users/get-me', {
+    const user = await axios.get('https://instagramserver-n7xg.onrender.com/users/get-me', {
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer: ${token.value}` 
@@ -115,13 +115,13 @@
   })
 
   const getData = async () => {
-    const res = await axios.get('http://localhost:3001/posts', {
+    const res = await axios.get('https://instagramserver-n7xg.onrender.com/posts', {
       headers: {
         'Authorization': `Bearer: ${token.value}`
       }
     })
     for(let i = 0; i < res.data.length; i++) {
-      const response = await axios.get(`http://localhost:3001/posts/comments/${res.data[i]._id}`)
+      const response = await axios.get(`https://instagramserver-n7xg.onrender.com/posts/comments/${res.data[i]._id}`)
       res.data[i].comments = response.data.reverse();
       posts.value = res.data.reverse();
     }
@@ -129,7 +129,7 @@
 
   const like = async (e) => {
     e.target.disabled = true
-    const res = await axios.put(`http://localhost:3001/posts/like/${e.target.id}`, {}, {
+    const res = await axios.put(`https://instagramserver-n7xg.onrender.com/posts/like/${e.target.id}`, {}, {
       headers: {
         'Content-Type': 'application/json',
         "Authorization": `Bearer: ${token.value}`
@@ -145,7 +145,7 @@
 
   const removeLike = async (e) => {
     e.target.disabled = true
-    const res = await axios.put(`http://localhost:3001/posts/remove-like/${e.target.id}`, {}, {
+    const res = await axios.put(`https://instagramserver-n7xg.onrender.com/posts/remove-like/${e.target.id}`, {}, {
       headers: {
         'Content-Type': 'application/json',
         "Authorization": `Bearer: ${token.value}`
@@ -169,7 +169,7 @@
     e.preventDefault();
     const id = e.target.closest('.post-item').id
     const commentText = document.querySelector(`#commentText-${id}`)
-    const res = await axios.post(`http://localhost:3001/posts/add-comment/${id}`, {
+    const res = await axios.post(`https://instagramserver-n7xg.onrender.com/posts/add-comment/${id}`, {
       text: commentText.value
     }, {
       headers: {
